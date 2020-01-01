@@ -1,1 +1,1 @@
-cp /home/pi/plantmonitor-db/plant.db /home/pi/plantmonitor/testdb
+cp /home/pi/plantmonitor_v2-db/plant.db /home/pi/plantmonitor_v2/testdb

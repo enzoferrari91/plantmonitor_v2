@@ -2,10 +2,7 @@
 
 echo "Starte Flask Webserver..."
 
-cd /home/pi/plantmonitor
-
-# Optional:
-sudo service apache2 stop
+cd /home/pi/plantmonitor_v2
 
 nohup sudo python app.py >/dev/null 2>&1 &
 
