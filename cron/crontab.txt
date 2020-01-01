@@ -1,0 +1,13 @@
+# CRONTABS
+
+# Periodische Abfrage Daten
+*/5 * * * * sudo python plantmonitor/data-crawler.py > plantmonitor-logs/log_data.txt
+
+# Restart DP-Agent jeden Tag um 08:01 und 18:01
+1 8,18 * * * plantmonitor/restartDP.sh > plantmonitor-logs/log_dataplicity.txt
+
+# Reboot jeden 5. Tag um 09:01
+1 9 */5 * * plantmonitor/reboot.sh > plantmonitor-logs/log_reboot.txt
+
+# Nach Reboot starte Webserver Flask um 09:06
+6 9 */5 * * plantmonitor/restart.sh > plantmonitor-logs/log_restart.txt

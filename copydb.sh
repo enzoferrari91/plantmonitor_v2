@@ -1,0 +1,1 @@
+cp /home/pi/plantmonitor-db/plant.db /home/pi/plantmonitor/testdb
