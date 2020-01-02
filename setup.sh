@@ -1,10 +1,10 @@
 echo "PLANTMONITOR_v2"
 echo "Installiere erforderliche Pakete..."
 echo "----------------------------------------------------"
-apt-get update
-apt-get install python-pip -y
-apt-get install sqlite3 -y
-pip install flask
+sudo apt-get update
+sudo apt-get install python-pip -y
+sudo apt-get install sqlite3 -y
+sudo pip install flask
 echo "Erstelle Verzeichnisse und Log-Files..."
 echo "----------------------------------------------------"
 echo "DATENBANK"
