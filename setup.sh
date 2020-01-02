@@ -34,21 +34,23 @@ echo "----------------------------------------------------"
 echo "Erstelle erforderliche Crontab-Liste..."
 echo "----------------------------------------------------"
 # write out current crontab
-crontab -l > mycron
+#crontab -l > mycron
 # echo new cron into cron file
 # Periodischer cron Test
-echo "*/1	*	*	*	*	sudo python plantmonitor_v2/cron-test.py > plantmonitor_v2-logs/log_test.txt" >> mycron
+(crontab -l 2>/dev/null; echo "*/1	*	*	*	*	sudo python plantmonitor_v2/cron-test.py > plantmonitor_v2-logs/log_test.txt") | crontab -
 # Periodische Abfrage Daten
-echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt" >> mycron
+(crontab -l 2>/dev/null; echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt") | crontab -
+
+#echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt" >> mycron
 # Restart DP-Agent jeden Tag um 08:01 und 18:01
-echo "1	8,18	*	*	*	plantmonitor_v2/restartDP.sh > plantmonitor_v2-logs/log_dataplicity.txt" >> mycron
+#echo "1	8,18	*	*	*	plantmonitor_v2/restartDP.sh > plantmonitor_v2-logs/log_dataplicity.txt" >> mycron
 # Reboot jeden 5. Tag um 09:01
-echo "1	9	*/5	*	*	plantmonitor_v2/reboot.sh > plantmonitor_v2-logs/log_reboot.txt" >> mycron
+#echo "1	9	*/5	*	*	plantmonitor_v2/reboot.sh > plantmonitor_v2-logs/log_reboot.txt" >> mycron
 # Nach Reboot starte Webserver Flask um 09:06
-echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_restart.txt" >> mycron
+#echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_restart.txt" >> mycron
 #install new cron file
-crontab mycron
-rm mycron
+#crontab mycron
+#rm mycron
 echo "----------------------------------------------------"
 #echo "Restart..."
 #sudo reboot
