@@ -16,7 +16,12 @@ cd
 cd /home/pi
 mkdir plantmonitor_v2-logs
 cd /home/pi/plantmonitor_v2-logs
+echo "-" > "log_test.txt"
 echo "-" > "log_data.txt"
+echo "-" > "log_dataplicity.txt"
+echo "-" > "log_reboot.txt"
+echo "-" > "log_restart.txt"
+
 echo "ALARM-FILE"
 cd
 cd /home/pi
@@ -32,6 +37,8 @@ echo "----------------------------------------------------"
 # write out current crontab
 crontab -l > mycron
 # echo new cron into cron file
+# Periodischer cron Test
+echo "*/1	*	*	*	*	sudo python plantmonitor_v2/cron-test.py > plantmonitor_v2-logs/log_test.txt" >> mycron
 # Periodische Abfrage Daten
 echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt" >> mycron
 # Restart DP-Agent jeden Tag um 08:01 und 18:01
