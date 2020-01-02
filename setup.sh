@@ -21,7 +21,6 @@ echo "-" > "log_data.txt"
 echo "-" > "log_dataplicity.txt"
 echo "-" > "log_reboot.txt"
 echo "-" > "log_restart.txt"
-
 echo "ALARM-FILE"
 cd
 cd /home/pi
