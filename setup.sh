@@ -1,10 +1,10 @@
 echo "PLANTMONITOR_v2"
 echo "Installiere erforderliche Pakete..."
 echo "----------------------------------------------------"
-sudo apt-get update
-sudo apt-get install python-pip -y
-sudo apt-get install sqlite3 -y
-sudo pip install flask
+apt-get update
+apt-get install python-pip -y
+apt-get install sqlite3 -y
+pip install flask
 echo "Erstelle Verzeichnisse und Log-Files..."
 echo "----------------------------------------------------"
 echo "DATENBANK"
@@ -34,21 +34,21 @@ echo "----------------------------------------------------"
 echo "Erstelle erforderliche Crontab-Liste..."
 echo "----------------------------------------------------"
 # write out current crontab
-sudo crontab -l > mycron
+crontab -l > mycron
 # echo new cron into cron file
 # Periodischer cron Test
-sudo echo "*/1	*	*	*	*	sudo python plantmonitor_v2/cron-test.py > plantmonitor_v2-logs/log_test.txt" >> mycron
+echo "*/1	*	*	*	*	sudo python plantmonitor_v2/cron-test.py > plantmonitor_v2-logs/log_test.txt" >> mycron
 # Periodische Abfrage Daten
-sudo echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt" >> mycron
+echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt" >> mycron
 # Restart DP-Agent jeden Tag um 08:01 und 18:01
-sudo echo "1	8,18	*	*	*	plantmonitor_v2/restartDP.sh > plantmonitor_v2-logs/log_dataplicity.txt" >> mycron
+echo "1	8,18	*	*	*	plantmonitor_v2/restartDP.sh > plantmonitor_v2-logs/log_dataplicity.txt" >> mycron
 # Reboot jeden 5. Tag um 09:01
-sudo echo "1	9	*/5	*	*	plantmonitor_v2/reboot.sh > plantmonitor_v2-logs/log_reboot.txt" >> mycron
+echo "1	9	*/5	*	*	plantmonitor_v2/reboot.sh > plantmonitor_v2-logs/log_reboot.txt" >> mycron
 # Nach Reboot starte Webserver Flask um 09:06
-sudo echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_restart.txt" >> mycron
+echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_restart.txt" >> mycron
 #install new cron file
-sudo crontab mycron
-sudo rm mycron
+crontab mycron
+rm mycron
 echo "----------------------------------------------------"
 #echo "Restart..."
 #sudo reboot
