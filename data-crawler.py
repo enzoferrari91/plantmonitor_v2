@@ -14,6 +14,9 @@ pin = '4'
 
 try:
   humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+  moisture = 0
+  waterlevel = 0
+  pumpstatus = 0 
 
 except:
   humidity = 0
