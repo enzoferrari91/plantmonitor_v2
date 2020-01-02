@@ -6,11 +6,11 @@ apt-get install git -y
 apt-get install python-pip -y
 apt-get install sqlite3 -y
 pip install flask
-echo "----------------------------------------------------"
-echo "Download GIT-Repository..."
-echo "----------------------------------------------------"
-sudo git clone https://github.com/enzoferrari91/plantmonitor_v2.git
-echo "----------------------------------------------------"
+#echo "----------------------------------------------------"
+#echo "Download GIT-Repository..."
+#echo "----------------------------------------------------"
+#sudo git clone https://github.com/enzoferrari91/plantmonitor_v2.git
+#echo "----------------------------------------------------"
 echo "Erstelle Verzeichnisse und Log-Files..."
 echo "----------------------------------------------------"
 echo "DATENBANK"

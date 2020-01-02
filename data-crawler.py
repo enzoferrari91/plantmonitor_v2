@@ -5,43 +5,15 @@ import sys
 import sqlite3
 import config
 
-serialArduino = '/dev/ttyACM0' # Serial port for Arduino
+import Adafruit_DHT
+
+sensor = Adafruit_DHT.DHT22
+pin = '4'
 
 
-def send(port, bytes, tr): 
-  port.write(bytes)
-  time.sleep(tr)
-  
-
-def readArduino(msg):
-  print ("Open serial port /dev/tty/ACM0...", end="")
-  Arduino=serial.Serial(port=serialArduino, baudrate=9600)
-  time.sleep(2)
-
-  send(Arduino, msg, 0.5)
-  print("Ready to receive...",end="")
-
-  data=""
-  c = Arduino.read()
-  while c != "!":
-    data = data + c
-    c = Arduino.read()
-    
-  print("Result OK!")
-  data = data.split(";")
-  data_list = [float(i) for i in data]
-  return(data_list)
 
 try:
-  print("Starting communication!")
-  print("ARDUINO...",end="")
-  data_list = readArduino("?")
-  
-  humidity = data_list[0]
-  temperature = data_list[1] 
-  moisture = data_list[2]
-  waterlevel = data_list[3]
-  pumpstatus = data_list[4]
+  humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
 except:
   humidity = 0
