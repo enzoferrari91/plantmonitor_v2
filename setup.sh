@@ -1,10 +1,10 @@
 echo "PLANTMONITOR_v2"
 echo "Installiere erforderliche Pakete..."
 echo "----------------------------------------------------"
-apt-get update
-apt-get install python-pip -y
-apt-get install sqlite3 -y
-pip install flask
+sudo apt-get update
+sudo apt-get install python-pip -y
+sudo apt-get install sqlite3 -y
+sudo pip install flask
 echo "Erstelle Verzeichnisse und Log-Files..."
 echo "----------------------------------------------------"
 echo "DATENBANK"
@@ -33,24 +33,18 @@ sudo python create-db.py
 echo "----------------------------------------------------"
 echo "Erstelle erforderliche Crontab-Liste..."
 echo "----------------------------------------------------"
-# write out current crontab
-#crontab -l > mycron
-# echo new cron into cron file
+crontab -r
 # Periodischer cron Test
 (crontab -l 2>/dev/null; echo "*/1	*	*	*	*	sudo python plantmonitor_v2/cron-test.py > plantmonitor_v2-logs/log_test.txt") | crontab -
 # Periodische Abfrage Daten
 (crontab -l 2>/dev/null; echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt") | crontab -
-
-#echo "*/5	*	*	*	*	sudo python plantmonitor_v2/data-crawler.py > plantmonitor_v2-logs/log_data.txt" >> mycron
 # Restart DP-Agent jeden Tag um 08:01 und 18:01
-#echo "1	8,18	*	*	*	plantmonitor_v2/restartDP.sh > plantmonitor_v2-logs/log_dataplicity.txt" >> mycron
+(crontab -l 2>/dev/null; echo "1	8,18	*	*	*	plantmonitor_v2/restartDP.sh > plantmonitor_v2-logs/log_dataplicity.txt") | crontab -
 # Reboot jeden 5. Tag um 09:01
-#echo "1	9	*/5	*	*	plantmonitor_v2/reboot.sh > plantmonitor_v2-logs/log_reboot.txt" >> mycron
+(crontab -l 2>/dev/null; echo "1	9	*/5	*	*	plantmonitor_v2/reboot.sh > plantmonitor_v2-logs/log_reboot.txt") | crontab -
 # Nach Reboot starte Webserver Flask um 09:06
-#echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_restart.txt" >> mycron
-#install new cron file
-#crontab mycron
-#rm mycron
+(crontab -l 2>/dev/null; echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_restart.txt") | crontab -
+echo "Setup abgeschlossen."
 echo "----------------------------------------------------"
 #echo "Restart..."
 #sudo reboot
