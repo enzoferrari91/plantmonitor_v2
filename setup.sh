@@ -50,5 +50,5 @@ sudo echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_res
 sudo crontab mycron
 sudo rm mycron
 echo "----------------------------------------------------"
-echo "Restart..."
-sudo reboot
+#echo "Restart..."
+#sudo reboot
