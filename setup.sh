@@ -12,11 +12,11 @@ echo "----------------------------------------------------"
 echo "DATENBANK"
 cd
 cd /home/pi
-sudo mkdir plantmonitor_v2-db
+mkdir plantmonitor_v2-db
 echo "LOG-FILES"
 cd
 cd /home/pi
-sudo mkdir plantmonitor_v2-logs
+mkdir plantmonitor_v2-logs
 cd /home/pi/plantmonitor_v2-logs
 echo "-" > "log_test.txt"
 echo "-" > "log_data.txt"
