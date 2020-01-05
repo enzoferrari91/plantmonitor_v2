@@ -17,22 +17,20 @@ cd
 cd /home/pi
 sudo mkdir plantmonitor_v2-logs
 cd /home/pi/plantmonitor_v2-logs
-echo "-" > "log_test.txt"
-echo "-" > "log_data.txt"
-echo "-" > "log_dataplicity.txt"
-echo "-" > "log_reboot.txt"
-echo "-" > "log_restart.txt"
+sudo echo "-" > "log_test.txt"
+sudo echo "-" > "log_data.txt"
+sudo echo "-" > "log_dataplicity.txt"
+sudo echo "-" > "log_reboot.txt"
+sudo echo "-" > "log_restart.txt"
 echo "ALARM-FILE"
 cd
 cd /home/pi
 echo "-" > "alarm.txt"
-clear
 echo "----------------------------------------------------"
 echo "Erstelle sqlite3 Datenbank..."
 echo "----------------------------------------------------"
 cd /home/pi/plantmonitor_v2
 sudo python create-db.py
-clear
 echo "----------------------------------------------------"
 echo "Erstelle erforderliche Crontab-Liste..."
 echo "----------------------------------------------------"
