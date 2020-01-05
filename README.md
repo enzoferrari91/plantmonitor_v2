@@ -6,7 +6,7 @@ Repository for plantmonitor code
 ## Installation (v1):
 
 ```
-curl https://raw.githubusercontent.com/enzoferrari91/plantmonitor_v2/master/setup.sh | bash
+curl https://raw.githubusercontent.com/enzoferrari91/plantmonitor_v2/master/quickstart.sh | bash
 ```
 
 

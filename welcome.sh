@@ -1,1 +1,0 @@
-echo "HELLO! TO PLANTMONITOR V2!"
