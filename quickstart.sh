@@ -8,4 +8,4 @@ sudo rm -rv plantmonitor_v2-db
 sudo git clone https://github.com/enzoferrari91/plantmonitor_v2.git
 cd plantmonitor_v2
 clear
-./setup.sh
+sh setup.sh
