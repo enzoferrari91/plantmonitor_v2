@@ -1,4 +1,4 @@
-echo "PLANTMONITOR_v2 SETUP"
+echo "PLANTMONITOR_v2 -- SETUP"
 echo "Installiere erforderliche Pakete..."
 echo "----------------------------------------------------"
 sudo apt-get update
