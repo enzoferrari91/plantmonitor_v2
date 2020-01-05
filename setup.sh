@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "PLANTMONITOR_v2 -- SETUP"
 echo "Installiere erforderliche Pakete..."
 echo "----------------------------------------------------"
