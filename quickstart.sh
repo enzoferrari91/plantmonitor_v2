@@ -9,4 +9,4 @@ sudo rm "alarm.txt"
 sudo git clone https://github.com/enzoferrari91/plantmonitor_v2.git
 cd plantmonitor_v2
 clear
-sh setup.sh
+sudo ./setup.sh

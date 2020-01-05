@@ -17,15 +17,15 @@ cd
 cd /home/pi
 sudo mkdir plantmonitor_v2-logs
 cd /home/pi/plantmonitor_v2-logs
-echo "-" | sudo tee "log_test.txt"
-echo "-" | sudo tee "log_data.txt"
-echo "-" | sudo tee "log_dataplicity.txt"
-echo "-" | sudo tee "log_reboot.txt"
-echo "-" | sudo tee "log_restart.txt"
+echo "-" > "log_test.txt"
+echo "-" > "log_data.txt"
+echo "-" > "log_dataplicity.txt"
+echo "-" > "log_reboot.txt"
+echo "-" > "log_restart.txt"
 echo "ALARM-FILE"
 cd
 cd /home/pi
-echo "-" | sudo tee "alarm.txt"
+echo "-" > "alarm.txt"
 echo "----------------------------------------------------"
 echo "Erstelle sqlite3 Datenbank..."
 echo "----------------------------------------------------"
