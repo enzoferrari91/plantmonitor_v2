@@ -45,7 +45,6 @@ crontab -r
 (crontab -l 2>/dev/null; echo "1	9	*/5	*	*	plantmonitor_v2/reboot.sh > plantmonitor_v2-logs/log_reboot.txt") | crontab -
 # Nach Reboot starte Webserver Flask um 09:06
 (crontab -l 2>/dev/null; echo "6	9	*/5	*	*	plantmonitor_v2/restart.sh > plantmonitor_v2-logs/log_restart.txt") | crontab -
-clear
 echo "Setup abgeschlossen."
 echo "----------------------------------------------------"
 #echo "Restart..."
