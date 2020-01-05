@@ -1,3 +1,4 @@
+cd
 echo "WELCOME TO PLANTMONITOR V2!"
 echo "QUICKSTART"
 sudo apt-get update
